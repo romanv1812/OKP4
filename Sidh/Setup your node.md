@@ -14,6 +14,19 @@
 > ### How to submit:
 > The validator's presence in the consensus will be automatically checked.
 #
+
+Navigation:
+* Prepare
+* All variables
+* Build and configuration
+* Change PORT
+* Memory optimization
+* Start node
+* Create a validator
+* Snapshot
+* Update node
+* Useful commands
+* Delete node
 ## Prepare
 ### Update if needed and install packages
 ```bash
@@ -198,7 +211,7 @@ sudo journalctl -u $TIKER -f -o cat
 # Check synchronization of your node, if the result is false, the node is synchronized
 curl -s $NODE/status | jq .result.sync_info.catching_up
 ```
-## Create a validator after syncing
+## Create a validator
 ```bash 
 $TIKER tx staking create-validator \
   --amount=1000000$TOKEN \
@@ -408,4 +421,14 @@ sudo htop
 ```bash
 # File structure
 ncdu
+```
+## Delete node
+```bash
+sudo systemctl stop $TIKER && \
+sudo systemctl disable $TIKER; \
+sudo rm /etc/systemd/system/$TIKER.service; \
+sudo systemctl daemon-reload && \
+cd $HOME && \
+rm -rf $CONFIG $PROJECT; \
+sudo rm $(which $TIKER)
 ```
