@@ -44,113 +44,80 @@ echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile &
 source $HOME/.bash_profile && \
 go version
 ```
+### Installing the binaries:
 
-
-Новая установка ноды
-ВАЖНО — в командах ниже все, что в <> меняем на свое значение и убираем сами <>
-
-Устанавливаем бинарники
-
+```bash
 git clone https://github.com/okp4/okp4d && cd okp4d
 git checkout v3.0.0
 make install
-
 okp4d version --long | grep -e version -e commit
 # version: v3.0.0
 # commit: 2b9893990a9708b9c9f4fa524fb90662337a7db8
-Инициализируем ноду, чтобы создать необходимые файлы конфигурации
+```
 
-okp4d init <name_moniker> --chain-id okp4-nemeton-1
-Скачиваем Genesis
+### Initializing the node to create the necessary configuration files:
+```bash 
+okp4d init <name_node> --chain-id okp4-nemeton-1
+```
 
+### Create or restore a wallet:
+```bash
+okp4d keys add <name_wallet>
+# Don't forget to save the seed phrase
+```
+or
+```bash
+okp4d keys add <name_wallet> --recover
+```
+
+### Add an account to the local genesis file:
+```bash
+okp4d add-genesis-account <address_or_key_name> 10000200000uknow
+```
+
+
+### Download Genesis
+```bash
 wget -O $HOME/.okp4d/config/genesis.json "https://raw.githubusercontent.com/okp4/networks/main/chains/nemeton-1/genesis.json"
+```
 
-# Проверим генезис
+### Check the genesis
+```bash
 sha256sum ~/.okp4d/config/genesis.json
 # 2ec25f81cc2abecbc0da3de45b052ea3314d0d658b1b7f4c7b6a48d09254c742
-Проверяем, что состояние валидатора на начальном этапе
-
-cd && cat .okp4d/data/priv_validator_state.json
-{
-  "height": "0",
-  "round": 0,
-  "step": 0
-}
-
-# если нет, то выполняем команду
-okp4d tendermint unsafe-reset-all --home $HOME/.okp4d
-Скачиваем Addr book
-
-wget -O $HOME/.okp4d/config/addrbook.json "https://share.utsa.tech/okp4/addrbook.json"
-
-Настраиваем конфигурацию ноды
-# правим конфиг, благодаря чему мы можем больше не использовать флаг chain-id для каждой команды CLI в client.toml
+```
+### Configuration setting
+```bash
 okp4d config chain-id okp4-nemeton-1
-
-# при необходимости настраиваем keyring-backend в client.toml 
-okp4d config keyring-backend os
-
-# настраиваем минимальную цену за газ в app.toml
+okp4d config keyring-backend test
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uknow\"/;" ~/.okp4d/config/app.toml
+````
 
-# добавляем seeds/bpeers/peers в config.toml
+### Add seeds/bpeers/peers в config.toml
+```bash
 external_address=$(wget -qO- eth0.me)
 sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:26656\"/" $HOME/.okp4d/config/config.toml
-
 peers="9c462b1c0ba63115bd70c3bd4f2935fcb93721d0@65.21.170.3:42656,ee4c5d9a8ac7401f996ef9c4d79b8abda9505400@144.76.97.251:12656,2e85c1d08cfca6982c74ef2b67251aa459dd9b2f@65.109.85.170:43656,264256d32511c512a0a9d4098310a057c9999fd1@okp4.sergo.dev:12233,4ea26ce893d8f4f89a7b49b9bd77e0fbd914e029@65.109.88.162:36656,8d8fdad759361a57121903632adbd66ad072b1ab@okp4-testnet.nodejumper.io:29656,e3c602b146121c88d350bd7e0f6ce8977e1aacff@161.97.122.216:26656,3c805c2dead7b7a3a1d3ba2399d4d62153322413@65.108.2.41:36656,9d1482bc31fb4578a5c7f7f65c4e0aaf2dfc2336@213.239.215.77:34656,a7f1dcf7441761b0e0e1f8c6fdc79d3904c22c01@[2a02:c206:2093:4875::1]:36656,a7f1dcf7441761b0e0e1f8c6fdc79d3904c22c01@38.242.150.63:36656,99f6675049e22a0216af0e2447e7a4c5021874cd@142.132.132.200:28656,9392c27a9a561c31e7a920dc6f577d663c473ef8@154.12.225.88:26656"
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.okp4d/config/config.toml
-
-#bpeers=""
 #sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$bpeers\"/" $HOME/.okp4d/config/config.toml
-
 seeds=""
 sed -i.bak -e "s/^seeds =.*/seeds = \"$seeds\"/" $HOME/.okp4d/config/config.toml
-
-# при необходимости увеличиваем количество входящих и исходящих пиров для подключения, за исключением постоянных пиров в config.toml
-# может помочь при падении ноды, но увеличивает нагрузку
 sed -i 's/max_num_inbound_peers =.*/max_num_inbound_peers = 50/g' $HOME/.okp4d/config/config.toml
 sed -i 's/max_num_outbound_peers =.*/max_num_outbound_peers = 25/g' $HOME/.okp4d/config/config.toml
-
-# настраиваем фильтрацию "плохих" peers
 sed -i -e "s/^filter_peers *=.*/filter_peers = \"true\"/" $HOME/.okp4d/config/config.toml
-
-# изменение timeout_commit
 #sed -i -e "s/^timeout_commit *=.*/timeout_commit = \"2s\"/" $HOME/.okp4d/config/config.toml
-
-# отключаем JSON RPC Configuration в app.toml
-# nano /root/.okp4d/config/app.toml
-# enable = false
-(ОПЦИОНАЛЬНО) Настраиваем прунинг одной командой вapp.toml
-
 pruning="custom"
 pruning_keep_recent="1000"
 pruning_interval="10"
 sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.okp4d/config/app.toml
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.okp4d/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.okp4d/config/app.toml
-(ОПЦИОНАЛЬНО) Выкл индексацию вconfig.toml
-
 indexer="null"
 sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.okp4d/config/config.toml
-(ОПЦИОНАЛЬНО) Вкл/выкл снэпшоты вapp.toml
-
-# По умолчанию снэпшоты выключены "snapshot-interval=0"
 snapshot_interval=1000
 sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" ~/.okp4d/config/app.toml
-(ОПЦИОНАЛЬНО) Смена портов #для 2 ноды
+```
 
-# config.toml
-sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:36658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:36657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:6061\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:36656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":36660\"%" $HOME/.okp4d/config/config.toml
-
-# app.toml
-sed -i.bak -e "s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:9190\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:9191\"%; s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:1327\"%" $HOME/.okp4d/config/app.toml
-
-# client.toml
-sed -i.bak -e "s%^node = \"tcp://localhost:26657\"%node = \"tcp://localhost:36657\"%" $HOME/.okp4d/config/client.toml
-
-external_address=$(wget -qO- eth0.me)
-sed -i.bak -e "s/^external_address *=.*/external_address = \"$external_address:36656\"/" $HOME/.okp4d/config/config.toml
-Подробнее о смене портов здесь
 
 (ОПЦИОНАЛЬНО) State Sync 
 
