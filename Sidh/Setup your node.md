@@ -32,7 +32,7 @@ sudo systemctl restart ssh.service
 cd /etc/fail2ban/ && \
 sudo cp jail.conf jail.local
 ````
-### Installing GO v1.19.3
+#### Installing GO v1.19.3
 ```bash
 cd $HOME && \
 ver="1.19.3" && \
