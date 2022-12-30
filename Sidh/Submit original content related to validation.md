@@ -9,7 +9,7 @@
 
 > ### Description: 
 > Based on your experience as a validator, write an original article, twitter thread or video content providing value to other validators and the community in general. Content must be in English.   
-> The content may be used later to bring improvements to the node (https://docs.okp4.network/nodes/introduction), be referenced in OKP4's Medium ( https://blog.okp4.network/), or shared in social networks.   
+> The content may be used later to bring improvements to the node https://docs.okp4.network/nodes/introduction, be referenced in OKP4's Medium ( https://blog.okp4.network, or shared in social networks.   
 > If you’ve seen great documentation, articles or content ideas elsewhere, help us bring something similar to OKP4. Feel free to be creative if you’re in the right mood!   
 > 
 > ### Rewards:
