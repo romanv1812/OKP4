@@ -2,7 +2,7 @@
 # Navigation
 [Обычная ссылка в строке](https://www.google.com)
 * [Information about the project](https://github.com/romanv1812/OKP4/edit/main/README.md#okp4-protocol)
-* [Nemeton Program](https://github.com/romanv1812/OKP4/edit/main/README.md#nemeton-program)
+* [Nemeton Program](https://github.com/romanv1812/OKP4/blob/main/Nemeton%20Program.md)
 * [Guides](https://github.com/romanv1812/OKP4/edit/main/README.md#guides)
 * 4
 * 5
