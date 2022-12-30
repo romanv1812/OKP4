@@ -22,7 +22,8 @@
 > ### How to submit:
 > The validator's presence in the consensus will be automatically checked.
 #
-
+### Links:   
+[Explorer](https://okp4.explorers.guru)
 ### Navigation:
 * [Prepare](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md#prepare)
 * [All variables](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md#all-variables)
