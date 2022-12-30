@@ -221,7 +221,7 @@ okp4d tx staking create-validator \
   --commission-rate="0.10" \
   --commission-max-rate="0.20" \
   --commission-max-change-rate="0.01" \
-  --min-self-delegation=$DENOM \
+  --min-self-delegation=1000000 \
   --fees=0uknow \
   --from=$WALLET \
   --identity=$IDENTITY \
