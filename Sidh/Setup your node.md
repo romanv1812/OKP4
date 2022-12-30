@@ -376,7 +376,7 @@ okp4d tendermint unsafe-reset-all --home $HOME/$CONFIG
 ### Genesis
 ```bash
 # Add genesis account
-okp4d add-genesis-account $(archwayd keys show $ARCHWAY_WALLET -a) 1001000$TOKEN
+okp4d add-genesis-account $(archwayd keys show $ARCHWAY_WALLET -a) 1001000uknow
 ```
 ```bash
 # Create gentx
