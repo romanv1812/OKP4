@@ -32,31 +32,10 @@ sudo systemctl restart ssh.service
 cd /etc/fail2ban/ && \
 sudo cp jail.conf jail.local
 ````
-
-# устанавливаем необходимые утилиты
-apt install curl iptables build-essential git wget jq make gcc nano tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
-File2Ban - подробнее здесь и здесь
-
-# устанавливаем и копируем конфиг, который будет иметь больший приоритет
-apt install fail2ban -y && \
-cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local && \
-nano /etc/fail2ban/jail.local
-# раскомментировать и добавить свой IP: ignoreip = 127.0.0.1/8 ::1 <ip>
-systemctl restart fail2ban
-
-# проверяем status 
-systemctl status fail2ban
-# проверяем, какие jails активны (по умолчанию только sshd)
-fail2ban-client status
-# проверяем статистику по sshd
-fail2ban-client status sshd
-# смотрим логи
-tail /var/log/fail2ban.log
-# останавливаем работу и удаляем с автозагрузки
-systemctl stop fail2ban && systemctl disable fail2ban
-Устанавливаем GO
-
-ver="1.19" && \
+### Installing GO v1.19.3
+```bash
+cd $HOME && \
+ver="1.19.3" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
 sudo rm -rf /usr/local/go && \
 sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
@@ -64,6 +43,8 @@ rm "go$ver.linux-amd64.tar.gz" && \
 echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile && \
 source $HOME/.bash_profile && \
 go version
+```
+
 
 Новая установка ноды
 ВАЖНО — в командах ниже все, что в <> меняем на свое значение и убираем сами <>
