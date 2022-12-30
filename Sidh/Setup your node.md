@@ -102,8 +102,8 @@ source $HOME/.bash_profile
 ## Build and configuration
 ```bash 
 # Build binary 
-git clone $PROJECT_REPOSITORY_PATH $PROJECT && \
-cd $PROJECT && \
+git clone $PROJECT_REPOSITORY_PATH okp4d && \
+cd okp4d && \
 make install && \
 $TIKER version --long
 ```
@@ -186,7 +186,7 @@ sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cach
 # Create service 
 sudo tee /etc/systemd/system/okp4d.service > /dev/null <<EOF
 [Unit]
-Description=$PROJECT Node
+Description=okp4d Node
 After=network.target
 
 [Service]
@@ -271,7 +271,7 @@ TAG_NAME=""
 ```
 ```bash
 sudo systemctl stop okp4d && \
-cd $PROJECT && \
+cd okp4d && \
 git pull; \
 git checkout tags/$TAG_NAME && \
 make clean; \
@@ -366,7 +366,7 @@ okp4d tx bank send $WALLET <WALLET_TO> <TOKENS_COUNT>uknow --fees 5000uknow
 # Change peers and seeds
 peers="<PEERS>"
 seeds="<SEEDS>"
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/; s/^seeds *=.*/seeds = \"$seeds\"/" $HOME/$PROJECT_CONFIG/config/config.toml
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/; s/^seeds *=.*/seeds = \"$seeds\"/" $HOME/.okp4d/config/config.toml
 ```
 ```bash
 # Reset private validator file to genesis state and delete addrbook.json
@@ -429,6 +429,6 @@ sudo systemctl disable okp4d; \
 sudo rm /etc/systemd/system/okp4d.service; \
 sudo systemctl daemon-reload && \
 cd $HOME && \
-rm -rf $CONFIG $PROJECT; \
+rm -rf $CONFIG okp4d; \
 sudo rm $(which okp4d)
 ```
