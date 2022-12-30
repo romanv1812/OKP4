@@ -353,22 +353,6 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/; s/^seeds
 okp4d tendermint unsafe-reset-all --home $HOME/.okp4d
 ```
 
-### Genesis
-```bash
-# Add genesis account
-okp4d add-genesis-account $(archwayd keys show $ARCHWAY_WALLET -a) 1001000uknow
-```
-```bash
-# Create gentx
-okp4d gentx $WALLET 1000000uknow \
-  --commission-rate=0.1 \
-  --commission-max-rate=0.2 \
-  --commission-max-change-rate=0.1 \
-  --pubkey $(okp4d tendermint show-validator) \
-  --chain-id=okp4-nemeton-1 \
-  --moniker="$MONIKER"
-```
-
 ### All validators info
 ```bash
 # List of all active validators 
