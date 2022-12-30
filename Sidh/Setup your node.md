@@ -184,7 +184,7 @@ sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cach
 # Start node
 ```bash 
 # Create service 
-sudo tee /etc/systemd/system/$TIKER.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/okp4d.service > /dev/null <<EOF
 [Unit]
 Description=$PROJECT Node
 After=network.target
@@ -215,7 +215,7 @@ curl -s $NODE/status | jq .result.sync_info.catching_up
 ```bash 
 okp4d tx staking create-validator \
   --amount=1000000$TOKEN \
-  --pubkey=$($TIKER tendermint show-validator) \
+  --pubkey=$(okp4d tendermint show-validator) \
   --moniker=$MONIKER \
   --chain-id=okp4-nemeton-1 \
   --commission-rate="0.10" \
