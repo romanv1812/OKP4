@@ -214,7 +214,7 @@ curl -s $NODE/status | jq .result.sync_info.catching_up
 ## Create a validator
 ```bash 
 okp4d tx staking create-validator \
-  --amount=1000000$TOKEN \
+  --amount=1000000uknow \
   --pubkey=$(okp4d tendermint show-validator) \
   --moniker=$MONIKER \
   --chain-id=okp4-nemeton-1 \
@@ -222,7 +222,7 @@ okp4d tx staking create-validator \
   --commission-max-rate="0.20" \
   --commission-max-change-rate="0.01" \
   --min-self-delegation=$DENOM \
-  --fees=0$TOKEN \
+  --fees=0uknow \
   --from=$WALLET \
   --identity=$IDENTITY \
   --website=$WEBSITE \
@@ -333,7 +333,7 @@ okp4d q bank balances $ADDRESS
 ### Voting
 ```bash
 # Vote
-okp4d tx gov vote <PROPOSAL_ID> <yes|no> --from $WALLET --fees 5000$TOKEN -y
+okp4d tx gov vote <PROPOSAL_ID> <yes|no> --from $WALLET --fees 5000uknow -y
 ``
 ```bash
 # Check all voted proposals
@@ -343,24 +343,24 @@ okp4d q gov proposals --voter $ADDRESS
 ### Actions
 ```bash
 # Edit validator
-okp4d tx staking edit-validator --website="<YOUR_WEBSITE>" --details="<YOUR_DESCRIPTION>" --moniker="<YOUR_NEW_MONIKER>" --from=$WALLET --fees 5000$TOKEN
+okp4d tx staking edit-validator --website="<YOUR_WEBSITE>" --details="<YOUR_DESCRIPTION>" --moniker="<YOUR_NEW_MONIKER>" --from=$WALLET --fees 5000uknow
 ```
 ```bash
 # Unjail
-okp4d tx slashing unjail --from $WALLET --fees 5000$TOKEN
+okp4d tx slashing unjail --from $WALLET --fees 5000uknow
 ```
 ```bash
 # Bond more tokens (if you want increase your validator stake you should bond more to your valoper address):
-okp4d tx staking delegate $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
+okp4d tx staking delegate $VALOPER <TOKENS_COUNT>uknow--from $WALLET --fees 5000uknow -y
 ```
 ```bash
 # Undelegate
-okp4d tx staking unbond $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
+okp4d tx staking unbond $VALOPER <TOKENS_COUNT>uknow --from $WALLET --fees 5000uknow -y
 ```
 ```bash
 # Send tokens. 1 token = 1000000 (Cosmos)
-okp4d tx bank send $WALLET <WALLET_TO> <TOKENS_COUNT>$TOKEN --fees 5000$TOKEN
-# e.g. okp4d tx bank send $WALLET cosmos10h3t6rtrjwxqlw0jgwc540rthuclhvrzhndkeg 1000000$TOKEN --gas auto
+okp4d tx bank send $WALLET <WALLET_TO> <TOKENS_COUNT>uknow --fees 5000uknow
+# e.g. okp4d tx bank send $WALLET cosmos10h3t6rtrjwxqlw0jgwc540rthuclhvrzhndkeg 1000000uknow --gas auto
 ```
 ```bash
 # Change peers and seeds
@@ -380,7 +380,7 @@ okp4d add-genesis-account $(archwayd keys show $ARCHWAY_WALLET -a) 1001000$TOKEN
 ```
 ```bash
 # Create gentx
-okp4d gentx $WALLET 1000000$TOKEN \
+okp4d gentx $WALLET 1000000uknow \
   --commission-rate=0.1 \
   --commission-max-rate=0.2 \
   --commission-max-change-rate=0.1 \
