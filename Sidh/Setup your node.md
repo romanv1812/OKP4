@@ -61,12 +61,12 @@ go version
 ## All variables
 ```bash
 # Input your data
-MONIKER="<moniker>"
-WALLET="wallet"
-WEBSITE="<Your website>"
-IDENTITY="<Your ID https://keybase.io>"
-DETAILS="<description>"
-SECURITY_CONTACT="<your email>"
+MONIKER="<YOUR_NEW_MONIKER>"
+WALLET="<YOUR_WALLET_NAME>"
+WEBSITE="<YOUR_WEBSITE>"
+IDENTITY="<<YOUR_KEYBASE_ID>"
+DETAILS="<YOUR_DESCRIPTION>"
+SECURITY_CONTACT="<YOUR_EMAIL>"
 ```
 
 ```bash
@@ -83,11 +83,10 @@ source $HOME/.bash_profile
 # Build binary 
 git clone https://github.com/okp4/okp4d.git okp4d && \
 cd okp4d && \
-make install && \
-$TIKER version --long
+make install
 ```
 ```bash 
-# Initialisation (input SID from previous step) | ONE COMMAND
+# Initialisation
 okp4d init $MONIKER --chain-id okp4-nemeton-1 && \
 okp4d config chain-id okp4-nemeton-1 && \
 okp4d config keyring-backend test 
