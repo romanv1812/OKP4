@@ -16,17 +16,17 @@
 #
 
 Navigation:
-* Prepare
-* All variables
-* Build and configuration
-* Change PORT
-* Memory optimization
-* Start node
-* Create a validator
-* Snapshot
-* Update node
-* Useful commands
-* Delete node
+* [Prepare](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md#prepare)
+* [All variables](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#all-variables)
+* [Build and configuration](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#build-and-configuration)
+* [Change PORT](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#change-port)
+* [Memory optimization](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#memory-optimization)
+* [Start node](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#start-node)
+* [Create a validator](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#create-a-validator)
+* [Snapshot](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#snapshot)
+* [Update node](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#update-node)
+* [Useful commands](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#useful-commands)
+* [Delete node](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#delete-node)
 ## Prepare
 ### Update if needed and install packages
 ```bash
