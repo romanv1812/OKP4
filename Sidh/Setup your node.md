@@ -34,18 +34,7 @@ sudo apt update && sudo apt upgrade -y && \
 sudo apt install curl tar wget clang pkg-config libssl-dev libleveldb-dev jq build-essential bsdmainutils git make ncdu htop screen unzip bc fail2ban htop -y
 ```
 
-#### Disable access by password 
-```bash
-sed -i -E 's/#?PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config && \
-sudo systemctl restart ssh.service
-```
-
-#### Intall fail2ban 
-```bash
-cd /etc/fail2ban/ && \
-sudo cp jail.conf jail.local
-````
-#### Installing GO v1.19.3
+### Installing GO v1.19.3
 ```bash
 cd $HOME && \
 ver="1.19.3" && \
