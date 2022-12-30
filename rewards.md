@@ -6,7 +6,6 @@
 [<img src='https://user-images.githubusercontent.com/83868103/210116267-bfff3f45-b653-4d5a-a58e-d9e046f79e96.png' alt='gentx'  width='16.2%'>](https://nemeton.okp4.network/terms#terms-conditions)
 
 
-[<img src='https://user-images.githubusercontent.com/83868103/210104134-8de51fd2-3a57-47da-b1e9-52c7af551183.png' alt='gentx'  width='100%'>](https://nemeton.okp4.network/#home)
 > Druids will be rewarded with a mix of token rewards + delegation commitment.
 > 1% of the total supply of mainnet tokens will be given to Druids as a reward based on their participation and performance during the program.
 > Many more tokens (OKP4 foundation vesting) will be delegated to Druids based on their participation and performance during the program.
