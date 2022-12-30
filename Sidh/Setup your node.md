@@ -161,7 +161,7 @@ sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_block
 sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cache\"/" $HOME/.okp4d/config/app.toml
 ```
 
-# Start node
+## Start node
 ```bash 
 # Create service 
 sudo tee /etc/systemd/system/okp4d.service > /dev/null <<EOF
