@@ -130,7 +130,7 @@ source $HOME/.bash_profile
 ```
 ```bash 
 # Peers and seeds
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/; s/^seeds *=.*/seeds = \"$SEEDS\"/" $HOME/$CONFIG/config/config.toml
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/; s/^seeds *=.*/seeds = \"$SEEDS\"/" $HOME/.okp4d/config/config.toml
 ```
 
 ## Change PORT
@@ -144,14 +144,14 @@ s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://0.0.0.0:$((NODES_NUM+26))65
 s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:$((NODES_NUM+6))060\"%; \
 s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:$((NODES_NUM+26))656\"%; \
 s%^external_address = \"\"%external_address = \"`echo $(wget -qO- eth0.me):$((NODES_NUM+26))656`\"%; \
-s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":$((NODES_NUM+26))660\"%" $HOME/$CONFIG/config/config.toml
+s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":$((NODES_NUM+26))660\"%" $HOME/.okp4d/config/config.toml
 ```
 ```bash
 sed -i.bak -e "\
 s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:$((NODES_NUM+1))317\"%; \
 s%^address = \":8080\"%address = \":$((NODES_NUM+8))080\"%; \
 s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:$((NODES_NUM+9))090\"%; \
-s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$((NODES_NUM+9))091\"%" $HOME/$CONFIG/config/app.toml
+s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$((NODES_NUM+9))091\"%" $HOME/.okp4d/config/app.toml
 ```
 ```bash
 echo "export NODE=http://localhost:$((NODES_NUM+26))657" >> $HOME/.bash_profile && \
@@ -170,15 +170,15 @@ pruning_keep_every="0" && \
 pruning_interval="10" && \
 min_retain_blocks="1" && \
 inter_block_cache="false" && \
-sed -i.bak -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/$CONFIG/config/config.toml && \
-sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_blocks\"/" $HOME/$CONFIG/config/app.toml && \
-sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" $HOME/$CONFIG/config/app.toml && \
+sed -i.bak -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.okp4d/config/config.toml && \
+sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_blocks\"/" $HOME/.okp4d/config/app.toml && \
+sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" $HOME/.okp4d/config/app.toml && \
 sed -i.bak -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/$CONFIG/config/app.toml && \
-sed -i.bak -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/$CONFIG/config/app.toml && \
-sed -i.bak -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/$CONFIG/config/app.toml && \
-sed -i.bak -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/$CONFIG/config/app.toml && \
-sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_blocks\"/" $HOME/$CONFIG/config/app.toml && \
-sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cache\"/" $HOME/$CONFIG/config/app.toml
+sed -i.bak -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.okp4d/config/app.toml && \
+sed -i.bak -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.okp4d/config/app.toml && \
+sed -i.bak -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.okp4d/config/app.toml && \
+sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_blocks\"/" $HOME/.okp4d/config/app.toml && \
+sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cache\"/" $HOME/.okp4d/config/app.toml
 ```
 
 # Start node
@@ -233,7 +233,7 @@ okp4d tx staking create-validator \
 ## Snapshot
 ```bash
 sudo systemctl stop okp4d && \
-okp4d tendermint unsafe-reset-all --home $HOME/$CONFIG --keep-addr-book
+okp4d tendermint unsafe-reset-all --home $HOME/.okp4d --keep-addr-book
 ```
 ```bash
 # RPC example: 5.161.106.127:26657
@@ -253,14 +253,14 @@ echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
 ```bash
 # Peer example: 22cd56c20132817d609025f42c5e263e70157e64@5.161.106.127:26656
 peers=""
-sed -i.bak -e  "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/$CONFIG/config/config.toml
+sed -i.bak -e  "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.okp4d/config/config.toml
 ```
 ```bash
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
 s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
-s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/$CONFIG/config/config.toml
+s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.okp4d/config/config.toml
 ```
 ```bash
 sudo systemctl restart okp4d && sudo journalctl -u okp4d -f -o cat
@@ -370,7 +370,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/; s/^seeds
 ```
 ```bash
 # Reset private validator file to genesis state and delete addrbook.json
-okp4d tendermint unsafe-reset-all --home $HOME/$CONFIG
+okp4d tendermint unsafe-reset-all --home $HOME/.okp4d
 ```
 
 ### Genesis
@@ -429,6 +429,6 @@ sudo systemctl disable okp4d; \
 sudo rm /etc/systemd/system/okp4d.service; \
 sudo systemctl daemon-reload && \
 cd $HOME && \
-rm -rf $CONFIG okp4d; \
+rm -rf .okp4d okp4d; \
 sudo rm $(which okp4d)
 ```
