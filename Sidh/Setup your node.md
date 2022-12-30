@@ -23,8 +23,21 @@
 > The validator's presence in the consensus will be automatically checked.
 #
 ### Links:   
-[Explorer](https://okp4.explorers.guru)
-### Navigation:
+* [Explorer](https://okp4.explorers.guru) 
+* [Faucet](https://faucet.okp4.network/)
+* [Github](https://github.com/okp4)
+
+* [Discord](https://discord.com/invite/okp4)
+* [Twitter](https://twitter.com/OKP4_Protocol)
+* [Telegram](https://t.me/okp4network)
+
+* [Website](https://okp4.network/)
+* [Whitepaper](https://docs.okp4.network/whitepaper/abstract%20)
+* [Medium](https://blog.okp4.network/)
+* [Linkedin](https://www.linkedin.com/company/okp4-open-knowledge-platform-for)
+
+
+## Guide navigation:
 * [Prepare](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md#prepare)
 * [All variables](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md#all-variables)
 * [Build and configuration](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md#build-and-configuration)
