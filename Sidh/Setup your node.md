@@ -47,7 +47,7 @@ source $HOME/.bash_profile && \
 go version
 ```
 
-## All variables
+## Add variables
 ```bash
 # Input your data
 MONIKER="<YOUR_NEW_MONIKER>"
