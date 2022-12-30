@@ -109,21 +109,21 @@ $TIKER version --long
 ```
 ```bash 
 # Initialisation (input SID from previous step) | ONE COMMAND
-$TIKER init $MONIKER --chain-id $CHAIN && \
-$TIKER config chain-id $CHAIN && \
-$TIKER config keyring-backend test && \
-$TIKER config node $NODE
+okp4d init $MONIKER --chain-id okp4-nemeton-1 && \
+okp4d config chain-id okp4-nemeton-1 && \
+okp4d config keyring-backend test && \
+okp4d config node $NODE
 ```
 ```bash
 # Add wallet
-$TIKER keys add $WALLET
+okp4d keys add $WALLET
 # or 
-$TIKER keys add $WALLET --recover
+okp4d keys add $WALLET --recover
 ```
 ```bash
 # Set variables 
-VALOPER=$($TIKER keys show $WALLET --bech val -a) && \
-ADDRESS=$($TIKER keys show $WALLET --address) && \
+VALOPER=$(okp4d keys show $WALLET --bech val -a) && \
+ADDRESS=$(okp4d keys show $WALLET --address) && \
 echo "export VALOPER=$VALOPER" >> $HOME/.bash_profile && \
 echo "export ADDRESS=$ADDRESS" >> $HOME/.bash_profile && \
 source $HOME/.bash_profile
@@ -156,7 +156,7 @@ s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$((NODES_NUM+9))091\"%" $HOME/
 ```bash
 echo "export NODE=http://localhost:$((NODES_NUM+26))657" >> $HOME/.bash_profile && \
 source $HOME/.bash_profile && \
-$TIKER config node $NODE
+okp4d config node $NODE
 ```
 ## Memory optimization
 ```bash 
@@ -192,7 +192,7 @@ After=network.target
 [Service]
 User=$USER
 Type=simple
-ExecStart=$(which $TIKER) start
+ExecStart=$(which okp4d) start
 Restart=on-failure
 LimitNOFILE=65535
 
@@ -203,9 +203,9 @@ EOF
 ```bash
 # Start service 
 sudo systemctl daemon-reload && \
-sudo systemctl enable $TIKER && \
-sudo systemctl restart $TIKER && \
-sudo journalctl -u $TIKER -f -o cat
+sudo systemctl enable okp4d && \
+sudo systemctl restart okp4d && \
+sudo journalctl -u okp4d -f -o cat
 ```
 ```bash
 # Check synchronization of your node, if the result is false, the node is synchronized
@@ -213,11 +213,11 @@ curl -s $NODE/status | jq .result.sync_info.catching_up
 ```
 ## Create a validator
 ```bash 
-$TIKER tx staking create-validator \
+okp4d tx staking create-validator \
   --amount=1000000$TOKEN \
   --pubkey=$($TIKER tendermint show-validator) \
   --moniker=$MONIKER \
-  --chain-id=$CHAIN \
+  --chain-id=okp4-nemeton-1 \
   --commission-rate="0.10" \
   --commission-max-rate="0.20" \
   --commission-max-change-rate="0.01" \
@@ -232,8 +232,8 @@ $TIKER tx staking create-validator \
   ```
 ## Snapshot
 ```bash
-sudo systemctl stop $TIKER && \
-$TIKER tendermint unsafe-reset-all --home $HOME/$CONFIG --keep-addr-book
+sudo systemctl stop okp4d && \
+okp4d tendermint unsafe-reset-all --home $HOME/$CONFIG --keep-addr-book
 ```
 ```bash
 # RPC example: 5.161.106.127:26657
@@ -263,32 +263,32 @@ s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
 s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/$CONFIG/config/config.toml
 ```
 ```bash
-sudo systemctl restart $TIKER && sudo journalctl -u $TIKER -f -o cat
+sudo systemctl restart okp4d && sudo journalctl -u okp4d -f -o cat
 ```
 ## Update node
 ```bash
 TAG_NAME=""
 ```
 ```bash
-sudo systemctl stop $TIKER && \
+sudo systemctl stop okp4d && \
 cd $PROJECT && \
 git pull; \
 git checkout tags/$TAG_NAME && \
 make clean; \
 make install && \
-sudo systemctl restart $TIKER && \
-journalctl -u $TIKER -f -o cat
+sudo systemctl restart okp4d && \
+journalctl -u okp4d -f -o cat
 ```
 ## Useful commands
 
 ### Node status
 ```bash
 # Service logs
-journalctl -u $TIKER -f -o cat
+journalctl -u okp4d -f -o cat
 ```
 ```bash
 # Service status
-systemctl status $TIKER
+systemctl status okp4d
 ```
 ```bash
 # Check node status
@@ -318,49 +318,49 @@ echo $ADDRESS
 ```
 ```bash
 # Jail, tombstoned, start_height, index_offset
-$TIKER q slashing signing-info $($TIKER tendermint show-validator)
+okp4d q slashing signing-info $($TIKER tendermint show-validator)
 ```
 ```bash
 # Get peer (e.g. 72cc19c8435d662677b2ea627e649f39b5bc8abb@5.161.70.110:26656
-echo "$($TIKER tendermint show-node-id)@$(curl ifconfig.me):$(curl -s $NODE/status | jq -r '.result.node_info.listen_addr' | cut -d':' -f3)"
+echo "$(okp4d tendermint show-node-id)@$(curl ifconfig.me):$(curl -s $NODE/status | jq -r '.result.node_info.listen_addr' | cut -d':' -f3)"
 ```
 ```bash
 ## Wallet
 # Get balance
-$TIKER q bank balances $ADDRESS
+okp4d q bank balances $ADDRESS
 ```
 
 ### Voting
 ```bash
 # Vote
-$TIKER tx gov vote <PROPOSAL_ID> <yes|no> --from $WALLET --fees 5000$TOKEN -y
+okp4d tx gov vote <PROPOSAL_ID> <yes|no> --from $WALLET --fees 5000$TOKEN -y
 ``
 ```bash
 # Check all voted proposals
-$TIKER q gov proposals --voter $ADDRESS
+okp4d q gov proposals --voter $ADDRESS
 ```
 
 ### Actions
 ```bash
 # Edit validator
-$TIKER tx staking edit-validator --website="<YOUR_WEBSITE>" --details="<YOUR_DESCRIPTION>" --moniker="<YOUR_NEW_MONIKER>" --from=$WALLET --fees 5000$TOKEN
+okp4d tx staking edit-validator --website="<YOUR_WEBSITE>" --details="<YOUR_DESCRIPTION>" --moniker="<YOUR_NEW_MONIKER>" --from=$WALLET --fees 5000$TOKEN
 ```
 ```bash
 # Unjail
-$TIKER tx slashing unjail --from $WALLET --fees 5000$TOKEN
+okp4d tx slashing unjail --from $WALLET --fees 5000$TOKEN
 ```
 ```bash
 # Bond more tokens (if you want increase your validator stake you should bond more to your valoper address):
-$TIKER tx staking delegate $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
+okp4d tx staking delegate $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
 ```
 ```bash
 # Undelegate
-$TIKER tx staking unbond $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
+okp4d tx staking unbond $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
 ```
 ```bash
 # Send tokens. 1 token = 1000000 (Cosmos)
-$TIKER tx bank send $WALLET <WALLET_TO> <TOKENS_COUNT>$TOKEN --fees 5000$TOKEN
-# e.g. $TIKER tx bank send $WALLET cosmos10h3t6rtrjwxqlw0jgwc540rthuclhvrzhndkeg 1000000$TOKEN --gas auto
+okp4d tx bank send $WALLET <WALLET_TO> <TOKENS_COUNT>$TOKEN --fees 5000$TOKEN
+# e.g. okp4d tx bank send $WALLET cosmos10h3t6rtrjwxqlw0jgwc540rthuclhvrzhndkeg 1000000$TOKEN --gas auto
 ```
 ```bash
 # Change peers and seeds
@@ -370,36 +370,36 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/; s/^seeds
 ```
 ```bash
 # Reset private validator file to genesis state and delete addrbook.json
-$TIKER tendermint unsafe-reset-all --home $HOME/$CONFIG
+okp4d tendermint unsafe-reset-all --home $HOME/$CONFIG
 ```
 
 ### Genesis
 ```bash
 # Add genesis account
-$TIKER add-genesis-account $(archwayd keys show $ARCHWAY_WALLET -a) 1001000$TOKEN
+okp4d add-genesis-account $(archwayd keys show $ARCHWAY_WALLET -a) 1001000$TOKEN
 ```
 ```bash
 # Create gentx
-$TIKER gentx $WALLET 1000000$TOKEN \
+okp4d gentx $WALLET 1000000$TOKEN \
   --commission-rate=0.1 \
   --commission-max-rate=0.2 \
   --commission-max-change-rate=0.1 \
   --pubkey $($TIKER tendermint show-validator) \
-  --chain-id=$CHAIN \
+  --chain-id=okp4-nemeton-1 \
   --moniker="$MONIKER"
 ```
 
 ### All validators info
 ```bash
 # List of all active validators 
-$TIKER q staking validators -o json --limit=1000 \
+okp4d q staking validators -o json --limit=1000 \
 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' \
 | jq -r '.tokens + " - " + .description.moniker' \
 | sort -gr | nl
 ```
 ```bash
 # List of all inactive validators 
-$TIKER q staking validators -o json --limit=1000 \
+okp4d q staking validators -o json --limit=1000 \
 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' \
 | jq -r '.tokens + " - " + .description.moniker' \
 | sort -gr | nl
@@ -424,11 +424,11 @@ ncdu
 ```
 ## Delete node
 ```bash
-sudo systemctl stop $TIKER && \
-sudo systemctl disable $TIKER; \
-sudo rm /etc/systemd/system/$TIKER.service; \
+sudo systemctl stop okp4d && \
+sudo systemctl disable okp4d; \
+sudo rm /etc/systemd/system/okp4d.service; \
 sudo systemctl daemon-reload && \
 cd $HOME && \
 rm -rf $CONFIG $PROJECT; \
-sudo rm $(which $TIKER)
+sudo rm $(which okp4d)
 ```
