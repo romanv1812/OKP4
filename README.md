@@ -1,6 +1,5 @@
-![image](https://user-images.githubusercontent.com/83868103/210104134-8de51fd2-3a57-47da-b1e9-52c7af551183.png)
 
-
+[<img src='https://user-images.githubusercontent.com/83868103/210104134-8de51fd2-3a57-47da-b1e9-52c7af551183.png' alt='gentx'  width='100%'>](https://nemeton.okp4.network/#home)
 
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Denver-Serial&size=25&pause=1000&color=50827B&center=true&vCenter=true&width=1000&lines=+Duration%3A+4+weeks++;From+Dec.+1st+to+Jan.+1st;It's+time+to+choose+a+task+%E2%87%A9;Good+luck+%F0%9F%A7%99%F0%9F%8F%BC)](https://git.io/typing-svg)
