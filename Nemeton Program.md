@@ -10,3 +10,8 @@
 ![ 500 pts](https://user-images.githubusercontent.com/83868103/210102101-2623a3b3-0b44-4166-91e5-9a114c223ad2.png)
 ![2 500 pts](https://user-images.githubusercontent.com/83868103/210102239-43d1dbeb-8062-48e3-96c1-0028f567fe92.png)
 ![10 000 pts](https://user-images.githubusercontent.com/83868103/210102341-65813fbe-789c-4ec7-8fa0-10e937371088.png)
+
+
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/83868103/210107199-e95ecf07-6db9-4352-9cbc-f70935ec59ff.png">
+
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/83868103/210107216-35e11911-a631-4a0e-9af9-13ae23577afd.png">
