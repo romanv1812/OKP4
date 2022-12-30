@@ -318,7 +318,7 @@ echo $ADDRESS
 ```
 ```bash
 # Jail, tombstoned, start_height, index_offset
-okp4d q slashing signing-info $($TIKER tendermint show-validator)
+okp4d q slashing signing-info $(okp4d tendermint show-validator)
 ```
 ```bash
 # Get peer (e.g. 72cc19c8435d662677b2ea627e649f39b5bc8abb@5.161.70.110:26656
