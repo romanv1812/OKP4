@@ -1,10 +1,15 @@
 ## Submit Gentx (From Dec 1st to Dec 12th)
-### Update if needed and install packages
+### Description
+> Before starting the network, we must to register your validator in the genesis.json.
+> The gentx creation and registration procedure are detailed here: https://github.com/okp4/networks/tree/main/chains/nemeton-1.
+> Your gentx shall be submitted through an issue on the https://github.com/okp4/networks/ GitHub repository.
+> This task is required to make you visible on the Leaderboard.
+### Update if needed and install packages:
 ```bash
 sudo apt update && sudo apt upgrade -y && \
 sudo apt install curl tar wget clang pkg-config libssl-dev libleveldb-dev jq build-essential bsdmainutils git make ncdu htop screen unzip bc fail2ban htop -y
 ```
-### Installing GO v1.18.3
+### Installing GO v1.18.3:
 ```bash
 cd $HOME && \
 ver="1.18.3" && \
@@ -36,7 +41,7 @@ okp4d version --long | grep -e version -e commit
 okp4d init <name_node> --chain-id okp4-nemeton-1
 ```
 
-### Create or restore a wallet
+### Create or restore a wallet:
 ```bash
 okp4d keys add <name_wallet>
 # Don't forget to save the seed phrase
@@ -46,13 +51,13 @@ or
 okp4d keys add <name_wallet> --recover
 ```
 
-### Add an account to the local genesis file
+### Add an account to the local genesis file:
 ```bash
 okp4d add-genesis-account <address_or_key_name> 10000200000uknow
 ```
 
 
-### Creation of Gentx 
+### Creation of Gentx:
 ```bash
 okp4d gentx <name_wallet> 10000000000uknow \
 --chain-id okp4-nemeton-1 \
@@ -64,7 +69,7 @@ okp4d gentx <name_wallet> 10000000000uknow \
 ```
 ### Don't forget to save priv_validator_key!!!
 
-### View Gentx
+### View Gentx:
 ```bash
 cat ~/.okp4d/config/gentx/gentx-*
 ```
