@@ -14,9 +14,24 @@
 > ### How to submit:
 > The validator's presence in the consensus will be automatically checked.
 #
-Подготовка сервера
-# обновляем репозитории
-apt update && apt upgrade -y
+## Prepare
+### Update if needed and install packages
+```bash
+sudo apt update && sudo apt upgrade -y && \
+sudo apt install curl tar wget clang pkg-config libssl-dev libleveldb-dev jq build-essential bsdmainutils git make ncdu htop screen unzip bc fail2ban htop -y
+```
+
+#### Disable access by password 
+```bash
+sed -i -E 's/#?PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config && \
+sudo systemctl restart ssh.service
+```
+
+#### Intall fail2ban 
+```bash
+cd /etc/fail2ban/ && \
+sudo cp jail.conf jail.local
+````
 
 # устанавливаем необходимые утилиты
 apt install curl iptables build-essential git wget jq make gcc nano tmux htop nvme-cli pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
