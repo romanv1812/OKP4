@@ -22,28 +22,41 @@ Join Data Spaces. Or create ones on your own terms.
 [<img src='https://user-images.githubusercontent.com/83868103/210096484-315293d0-cd17-45d0-9500-70d0188e12c5.png' alt='discord'  width='32.5%'>](https://discordapp.com/users/303453296755212288)
 
 # Nemeton Program
-**Nodes**  
-Submit your gentx on time
 
-1 000 Pts
+## Phase 1 **"SIDH"**
+<img width="1304" alt="image" src="https://user-images.githubusercontent.com/83868103/210098917-341fbb12-f928-4c4b-942d-4ea9ce45d5c9.png">
 
-Setup your node
 
-2 000 Pts
+![Setup your node](https://user-images.githubusercontent.com/83868103/210100876-002dce58-4246-4d2f-a39c-9f7a14859ec3.png)![Прямоугольник 1](https://user-images.githubusercontent.com/83868103/210101072-9d2e1f3f-59e2-49ee-94d4-60042104e021.png)
 
-Community
-Tweet about the OKP4 testnet
 
-500 Pts
 
-Challenges
-Uptime challenge
 
-2 500 Pts
+![Submit an original content related to validation](https://user-images.githubusercontent.com/83868103/210100879-578c2e61-f8a5-44b3-9ac9-068a3117c5ff.png)
+![Submit your gentx on time](https://user-images.githubusercontent.com/83868103/210100883-e13f4fe7-b219-4a3f-9a4a-ac3a44c9be1e.png)
+![Tweet about the OKP4 testnet](https://user-images.githubusercontent.com/83868103/210100884-82bf8f14-52a8-49e8-b9ad-9fc8ea669cd8.png)
+![Uptime challenge](https://user-images.githubusercontent.com/83868103/210100885-8fd02bd5-f2ac-45df-833c-df5343f255a2.png)
 
-Submit an original content related to validation
 
-10 000 Pts
+
+
+|                       Task                       |   Reward   |
+| ------------------------------------------------ | ---------- |
+| Submit your gentx on time                        | 1 000 Pts  |
+| Setup your node                                  | 2 000 Pts  |
+| Tweet about the OKP4 testnet                     | 500 Pts    | 
+| Uptime challenge                                 | 2 500 Pts  |
+| Submit an original content related to validation | 10 000 Pts |
+
+**Duration:** 4 weeks
+
+**From Dec. 1st to Jan. 1st**
+
+## Phase 2 **"IMBOLC"**
+<img width="1303" alt="image" src="https://user-images.githubusercontent.com/83868103/210098870-c2833e0b-c71d-4343-972c-9fc77b4564c9.png">
+
+## Phase 3 **"BELTAINE"**
+<img width="1302" alt="image" src="https://user-images.githubusercontent.com/83868103/210098770-22b9e918-7ef9-4377-aeec-bbb7a5a16ce0.png">
 
 # Guides
   
