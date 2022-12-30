@@ -1,9 +1,19 @@
 ## Submit Gentx (From Dec 1st to Dec 12th)
-### Description
-> Before starting the network, we must to register your validator in the genesis.json.
-> The gentx creation and registration procedure are detailed here: https://github.com/okp4/networks/tree/main/chains/nemeton-1.
-> Your gentx shall be submitted through an issue on the https://github.com/okp4/networks/ GitHub repository.
-> This task is required to make you visible on the Leaderboard.
+> ### Description: 
+> Before starting the network, we must to register your validator in the genesis.json.   
+> The gentx creation and registration procedure are detailed here: https://github.com/okp4/networks/tree/main/chains/nemeton-1.   
+> Your gentx shall be submitted through an issue on the https://github.com/okp4/networks/ GitHub repository.   
+> This task is required to make you visible on the [Leaderboard](https://nemeton.okp4.network/leaderboard#leaderboard).   
+> 
+> ### Rewards:
+> 1000 points.    
+> 
+> ### Judging criteria: 
+> You will receive the points once the OKP4 team has integrated your gentx in the genesis.
+> 
+> ### How to submit:
+> Send the issue number in a private message to Anik#9282 on Discord.
+#
 ### Update if needed and install packages:
 ```bash
 sudo apt update && sudo apt upgrade -y && \
