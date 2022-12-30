@@ -227,7 +227,7 @@ $TIKER tx staking create-validator \
   --identity=$IDENTITY \
   --website=$WEBSITE \
   --details=$DETAILS \
-	--security-contact=$SECURITY_CONTACT \
+  --security-contact=$SECURITY_CONTACT \
   -y
   ```
 ## Snapshot
