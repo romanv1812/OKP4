@@ -15,7 +15,7 @@
 > The validator's presence in the consensus will be automatically checked.
 #
 
-Navigation:
+### Navigation:
 * [Prepare](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md#prepare)
 * [All variables](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#all-variables)
 * [Build and configuration](https://github.com/romanv1812/OKP4/edit/main/Sidh/Setup%20your%20node.md#build-and-configuration)
