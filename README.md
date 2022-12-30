@@ -26,7 +26,7 @@ Join Data Spaces. Or create ones on your own terms.
 ## Phase 1 **"SIDH"**
 <img width="1304" alt="image" src="https://user-images.githubusercontent.com/83868103/210098917-341fbb12-f928-4c4b-942d-4ea9ce45d5c9.png">
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&center=true&width=435&lines=+Duration%3A+4+weeks++;From+Dec.+1st+to+Jan.+1st;Quick+fox+jumps+nightly+above+wizard)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Denver-Serial&size=25&pause=1000&color=50827B&center=true&vCenter=true&width=1000&lines=+Duration%3A+4+weeks++;From+Dec.+1st+to+Jan.+1st;It's+time+to+choose+a+task+%E2%87%A9;Good+luck+%F0%9F%A7%99%F0%9F%8F%BC)](https://git.io/typing-svg)
 
 ![1 000 pts](https://user-images.githubusercontent.com/83868103/210101706-d02c9c8d-b6d0-4d19-9638-74ca3f898651.png)
 ![2 000 pts](https://user-images.githubusercontent.com/83868103/210101795-14194d32-fd2f-43a9-bf8f-336dba6c38d4.png)
