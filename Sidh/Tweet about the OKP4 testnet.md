@@ -1,4 +1,4 @@
-## Setup your node Dec 14th - Jan 1st, 3pm UTC
+## Tweet about the OKP4 testnet Dec 12th - Jan 1st
 
 
 > ### Description: 
