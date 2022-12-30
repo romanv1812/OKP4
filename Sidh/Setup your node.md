@@ -224,7 +224,7 @@ $TIKER tendermint unsafe-reset-all --home $HOME/$CONFIG --keep-addr-book
 ```
 ```bash
 # RPC example: 5.161.106.127:26657
-SNAP_RPC=
+SNAP_RPC=""
 ```
 ```bash
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
@@ -251,4 +251,161 @@ s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/$CONFIG/config/config.toml
 ```
 ```bash
 sudo systemctl restart $TIKER && sudo journalctl -u $TIKER -f -o cat
+```
+## Update node
+```bash
+TAG_NAME=""
+```
+```bash
+sudo systemctl stop $TIKER && \
+cd $PROJECT && \
+git pull; \
+git checkout tags/$TAG_NAME && \
+make clean; \
+make install && \
+sudo systemctl restart $TIKER && \
+journalctl -u $TIKER -f -o cat
+```
+## Useful commands
+
+### Node status
+```bash
+# Service logs
+journalctl -u $TIKER -f -o cat
+```
+```bash
+# Service status
+systemctl status $TIKER
+```
+```bash
+# Check node status
+curl -s $NODE/status
+```
+```bash
+# Check synchronization of your node, if the result is false, the node is synchronized
+curl -s $NODE/status | jq .result.sync_info.catching_up
+```
+```bash
+# Check consensus (AFTER START)
+curl -s $NODE/consensus_state  | jq '.result.round_state.height_vote_set[0].prevotes_bit_array'
+```
+```bash
+# Connected peers
+curl -s $NODE/net_info | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr | split(":")[2])"' | wc -l
+```
+
+### Validator info
+```bash
+# Get validator address (valoper)
+echo $VALOPER
+```
+```bash
+# Get wallet address
+echo $ADDRESS
+```
+```bash
+# Jail, tombstoned, start_height, index_offset
+$TIKER q slashing signing-info $($TIKER tendermint show-validator)
+```
+```bash
+# Get peer (e.g. 72cc19c8435d662677b2ea627e649f39b5bc8abb@5.161.70.110:26656
+echo "$($TIKER tendermint show-node-id)@$(curl ifconfig.me):$(curl -s $NODE/status | jq -r '.result.node_info.listen_addr' | cut -d':' -f3)"
+```
+```bash
+## Wallet
+# Get balance
+$TIKER q bank balances $ADDRESS
+```
+
+### Voting
+```bash
+# Vote
+$TIKER tx gov vote <PROPOSAL_ID> <yes|no> --from $WALLET --fees 5000$TOKEN -y
+``
+```bash
+# Check all voted proposals
+$TIKER q gov proposals --voter $ADDRESS
+```
+
+### Actions
+```bash
+# Edit validator
+$TIKER tx staking edit-validator --website="<YOUR_WEBSITE>" --details="<YOUR_DESCRIPTION>" --moniker="<YOUR_NEW_MONIKER>" --from=$WALLET --fees 5000$TOKEN
+```
+```bash
+# Unjail
+$TIKER tx slashing unjail --from $WALLET --fees 5000$TOKEN
+```
+```bash
+# Bond more tokens (if you want increase your validator stake you should bond more to your valoper address):
+$TIKER tx staking delegate $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
+```
+```bash
+# Undelegate
+$TIKER tx staking unbond $VALOPER <TOKENS_COUNT>$TOKEN --from $WALLET --fees 5000$TOKEN -y
+```
+```bash
+# Send tokens. 1 token = 1000000 (Cosmos)
+$TIKER tx bank send $WALLET <WALLET_TO> <TOKENS_COUNT>$TOKEN --fees 5000$TOKEN
+# e.g. $TIKER tx bank send $WALLET cosmos10h3t6rtrjwxqlw0jgwc540rthuclhvrzhndkeg 1000000$TOKEN --gas auto
+```
+```bash
+# Change peers and seeds
+peers="<PEERS>"
+seeds="<SEEDS>"
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/; s/^seeds *=.*/seeds = \"$seeds\"/" $HOME/$PROJECT_CONFIG/config/config.toml
+```
+```bash
+# Reset private validator file to genesis state and delete addrbook.json
+$TIKER tendermint unsafe-reset-all --home $HOME/$CONFIG
+```
+
+### Genesis
+```bash
+# Add genesis account
+$TIKER add-genesis-account $(archwayd keys show $ARCHWAY_WALLET -a) 1001000$TOKEN
+```
+```bash
+# Create gentx
+$TIKER gentx $WALLET 1000000$TOKEN \
+  --commission-rate=0.1 \
+  --commission-max-rate=0.2 \
+  --commission-max-change-rate=0.1 \
+  --pubkey $($TIKER tendermint show-validator) \
+  --chain-id=$CHAIN \
+  --moniker="$MONIKER"
+```
+
+### All validators info
+```bash
+# List of all active validators | ONE COMMAND
+$TIKER q staking validators -o json --limit=1000 \
+| jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' \
+| jq -r '.tokens + " - " + .description.moniker' \
+| sort -gr | nl
+```
+```bash
+# List of all inactive validators | ONE COMMAND
+$TIKER q staking validators -o json --limit=1000 \
+| jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' \
+| jq -r '.tokens + " - " + .description.moniker' \
+| sort -gr | nl
+```
+
+### Another useful commands
+```bash
+# Root -> your node
+su -l $USER_NAME
+```
+```bash
+# Check internet connection
+curl -sL yabs.sh | bash -s -- -fg
+```
+```bash
+# Server load
+sudo htop
+```
+```bash
+# File structure
+ncdu
 ```
