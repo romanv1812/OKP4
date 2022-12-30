@@ -26,16 +26,15 @@ Join Data Spaces. Or create ones on your own terms.
 ## Phase 1 **"SIDH"**
 <img width="1304" alt="image" src="https://user-images.githubusercontent.com/83868103/210098917-341fbb12-f928-4c4b-942d-4ea9ce45d5c9.png">
 
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&center=true&width=435&lines=+Duration%3A+4+weeks++;From+Dec.+1st+to+Jan.+1st;Quick+fox+jumps+nightly+above+wizard)](https://git.io/typing-svg)
 
-![Setup your node](https://user-images.githubusercontent.com/83868103/210100876-002dce58-4246-4d2f-a39c-9f7a14859ec3.png)![Прямоугольник 1](https://user-images.githubusercontent.com/83868103/210101072-9d2e1f3f-59e2-49ee-94d4-60042104e021.png)
+![1 000 pts](https://user-images.githubusercontent.com/83868103/210101706-d02c9c8d-b6d0-4d19-9638-74ca3f898651.png)
+![2 000 pts](https://user-images.githubusercontent.com/83868103/210101795-14194d32-fd2f-43a9-bf8f-336dba6c38d4.png)
+![ 500 pts](https://user-images.githubusercontent.com/83868103/210102101-2623a3b3-0b44-4166-91e5-9a114c223ad2.png)
+![2 500 pts](https://user-images.githubusercontent.com/83868103/210102239-43d1dbeb-8062-48e3-96c1-0028f567fe92.png)
+![10 000 pts](https://user-images.githubusercontent.com/83868103/210102341-65813fbe-789c-4ec7-8fa0-10e937371088.png)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&width=435&lines=+Duration%3A+4+weeks++;From+Dec.+1st+to+Jan.+1st)](https://git.io/typing-svg)
 
-
-
-
-![Submit an original content related to validation](https://user-images.githubusercontent.com/83868103/210100879-578c2e61-f8a5-44b3-9ac9-068a3117c5ff.png)
-![Submit your gentx on time](https://user-images.githubusercontent.com/83868103/210100883-e13f4fe7-b219-4a3f-9a4a-ac3a44c9be1e.png)
-![Tweet about the OKP4 testnet](https://user-images.githubusercontent.com/83868103/210100884-82bf8f14-52a8-49e8-b9ad-9fc8ea669cd8.png)
-![Uptime challenge](https://user-images.githubusercontent.com/83868103/210100885-8fd02bd5-f2ac-45df-833c-df5343f255a2.png)
 
 
 
