@@ -384,7 +384,7 @@ okp4d gentx $WALLET 1000000$TOKEN \
   --commission-rate=0.1 \
   --commission-max-rate=0.2 \
   --commission-max-change-rate=0.1 \
-  --pubkey $($TIKER tendermint show-validator) \
+  --pubkey $(okp4d tendermint show-validator) \
   --chain-id=okp4-nemeton-1 \
   --moniker="$MONIKER"
 ```
