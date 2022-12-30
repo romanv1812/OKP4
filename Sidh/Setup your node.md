@@ -108,7 +108,7 @@ $TIKER keys add $WALLET
 $TIKER keys add $WALLET --recover
 ```
 ```bash
-# Set variables | ONE COMMAND
+# Set variables 
 VALOPER=$($TIKER keys show $WALLET --bech val -a) && \
 ADDRESS=$($TIKER keys show $WALLET --address) && \
 echo "export VALOPER=$VALOPER" >> $HOME/.bash_profile && \
@@ -116,7 +116,7 @@ echo "export ADDRESS=$ADDRESS" >> $HOME/.bash_profile && \
 source $HOME/.bash_profile
 ```
 ```bash 
-# Peers and seeds | ONE COMMAND
+# Peers and seeds
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/; s/^seeds *=.*/seeds = \"$SEEDS\"/" $HOME/$CONFIG/config/config.toml
 ```
 
@@ -170,7 +170,7 @@ sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cach
 
 # Start node
 ```bash 
-# Create service | ONE COMMAND
+# Create service 
 sudo tee /etc/systemd/system/$TIKER.service > /dev/null <<EOF
 [Unit]
 Description=$PROJECT Node
@@ -188,7 +188,7 @@ WantedBy=multi-user.target
 EOF
 ```
 ```bash
-# Start service | ONE COMMAND
+# Start service 
 sudo systemctl daemon-reload && \
 sudo systemctl enable $TIKER && \
 sudo systemctl restart $TIKER && \
@@ -286,7 +286,7 @@ curl -s $NODE/status
 curl -s $NODE/status | jq .result.sync_info.catching_up
 ```
 ```bash
-# Check consensus (AFTER START)
+# Check consensus 
 curl -s $NODE/consensus_state  | jq '.result.round_state.height_vote_set[0].prevotes_bit_array'
 ```
 ```bash
@@ -296,7 +296,7 @@ curl -s $NODE/net_info | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip
 
 ### Validator info
 ```bash
-# Get validator address (valoper)
+# Get validator address 
 echo $VALOPER
 ```
 ```bash
@@ -378,14 +378,14 @@ $TIKER gentx $WALLET 1000000$TOKEN \
 
 ### All validators info
 ```bash
-# List of all active validators | ONE COMMAND
+# List of all active validators 
 $TIKER q staking validators -o json --limit=1000 \
 | jq '.validators[] | select(.status=="BOND_STATUS_BONDED")' \
 | jq -r '.tokens + " - " + .description.moniker' \
 | sort -gr | nl
 ```
 ```bash
-# List of all inactive validators | ONE COMMAND
+# List of all inactive validators 
 $TIKER q staking validators -o json --limit=1000 \
 | jq '.validators[] | select(.status=="BOND_STATUS_UNBONDED")' \
 | jq -r '.tokens + " - " + .description.moniker' \
