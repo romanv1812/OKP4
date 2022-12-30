@@ -102,7 +102,7 @@ source $HOME/.bash_profile
 ## Build and configuration
 ```bash 
 # Build binary 
-git clone $PROJECT_REPOSITORY_PATH okp4d && \
+git clone https://github.com/okp4/okp4d.git okp4d && \
 cd okp4d && \
 make install && \
 $TIKER version --long
