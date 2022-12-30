@@ -198,3 +198,57 @@ sudo journalctl -u $TIKER -f -o cat
 # Check synchronization of your node, if the result is false, the node is synchronized
 curl -s $NODE/status | jq .result.sync_info.catching_up
 ```
+## Create a validator after syncing
+```bash 
+$TIKER tx staking create-validator \
+  --amount=1000000$TOKEN \
+  --pubkey=$($TIKER tendermint show-validator) \
+  --moniker=$MONIKER \
+  --chain-id=$CHAIN \
+  --commission-rate="0.10" \
+  --commission-max-rate="0.20" \
+  --commission-max-change-rate="0.01" \
+  --min-self-delegation=$DENOM \
+  --fees=0$TOKEN \
+  --from=$WALLET \
+  --identity=$IDENTITY \
+  --website=$WEBSITE \
+  --details=$DETAILS \
+	--security-contact=$SECURITY_CONTACT \
+  -y
+  ```
+## Snapshot
+```bash
+sudo systemctl stop $TIKER && \
+$TIKER tendermint unsafe-reset-all --home $HOME/$CONFIG --keep-addr-book
+```
+```bash
+# RPC example: 5.161.106.127:26657
+SNAP_RPC=
+```
+```bash
+LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
+BLOCK_HEIGHT=$((LATEST_HEIGHT-100)); \
+TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
+```
+```bash
+# Check data
+echo $LATEST_HEIGHT $BLOCK_HEIGHT $TRUST_HASH
+# Output example (numbers will be different):
+# 376080 374080 F0C78FD4AE4DB5E76A298206AE3C602FF30668C521D753BB7C435771AEA47189
+```
+```bash
+# Peer example: 22cd56c20132817d609025f42c5e263e70157e64@5.161.106.127:26656
+peers=""
+sed -i.bak -e  "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/$CONFIG/config/config.toml
+```
+```bash
+sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true| ; \
+s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
+s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
+s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"| ; \
+s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/$CONFIG/config/config.toml
+```
+```bash
+sudo systemctl restart $TIKER && sudo journalctl -u $TIKER -f -o cat
+```
