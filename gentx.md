@@ -72,4 +72,3 @@ cat ~/.okp4d/config/gentx/gentx-*
 
 ### Make issue [here](https://github.com/okp4/networks/issues)
 ### Send the issue number to the discord Anik#9282
-### Don't forget to save priv_validator_key
