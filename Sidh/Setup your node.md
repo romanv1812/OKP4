@@ -47,6 +47,7 @@ go version
 
 ## All variables
 ```bash
+# Input your data
 MONIKER="<moniker>"
 WALLET="wallet"
 WEBSITE="<Your website>"
@@ -84,4 +85,116 @@ echo "export DENOM=$DENOM" >> $HOME/.bash_profile && \
 echo "export NODE=$NODE" >> $HOME/.bash_profile && \
 echo "export GENESIS_JSON_PATH=$GENESIS_JSON_PATH" >> $HOME/.bash_profile && \
 source $HOME/.bash_profile
+```
+## Build and configuration
+```bash 
+# Build binary 
+git clone $PROJECT_REPOSITORY_PATH $PROJECT && \
+cd $PROJECT && \
+make install && \
+$TIKER version --long
+```
+```bash 
+# Initialisation (input SID from previous step) | ONE COMMAND
+$TIKER init $MONIKER --chain-id $CHAIN && \
+$TIKER config chain-id $CHAIN && \
+$TIKER config keyring-backend test && \
+$TIKER config node $NODE
+```
+```bash
+# Add wallet
+$TIKER keys add $WALLET
+# or 
+$TIKER keys add $WALLET --recover
+```
+```bash
+# Set variables | ONE COMMAND
+VALOPER=$($TIKER keys show $WALLET --bech val -a) && \
+ADDRESS=$($TIKER keys show $WALLET --address) && \
+echo "export VALOPER=$VALOPER" >> $HOME/.bash_profile && \
+echo "export ADDRESS=$ADDRESS" >> $HOME/.bash_profile && \
+source $HOME/.bash_profile
+```
+```bash 
+# Peers and seeds | ONE COMMAND
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/; s/^seeds *=.*/seeds = \"$SEEDS\"/" $HOME/$CONFIG/config/config.toml
+```
+
+## Change PORT
+```bash
+NODES_NUM="0"
+```
+```bash
+sed -i.bak -e "\
+s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:$((NODES_NUM+26))658\"%; \
+s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://0.0.0.0:$((NODES_NUM+26))657\"%; \
+s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:$((NODES_NUM+6))060\"%; \
+s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:$((NODES_NUM+26))656\"%; \
+s%^external_address = \"\"%external_address = \"`echo $(wget -qO- eth0.me):$((NODES_NUM+26))656`\"%; \
+s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":$((NODES_NUM+26))660\"%" $HOME/$CONFIG/config/config.toml
+```
+```bash
+sed -i.bak -e "\
+s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:$((NODES_NUM+1))317\"%; \
+s%^address = \":8080\"%address = \":$((NODES_NUM+8))080\"%; \
+s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:$((NODES_NUM+9))090\"%; \
+s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:$((NODES_NUM+9))091\"%" $HOME/$CONFIG/config/app.toml
+```
+```bash
+echo "export NODE=http://localhost:$((NODES_NUM+26))657" >> $HOME/.bash_profile && \
+source $HOME/.bash_profile && \
+$TIKER config node $NODE
+```
+## Memory optimization
+```bash 
+# Memory optimization. Removes unused data from the database.
+indexer="null" && \
+min_retain_blocks=1 && \
+snapshot_interval="100" && \
+pruning="custom" && \
+pruning_keep_recent="100" && \
+pruning_keep_every="0" && \
+pruning_interval="10" && \
+min_retain_blocks="1" && \
+inter_block_cache="false" && \
+sed -i.bak -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/$CONFIG/config/config.toml && \
+sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_blocks\"/" $HOME/$CONFIG/config/app.toml && \
+sed -i.bak -e "s/^snapshot-interval *=.*/snapshot-interval = \"$snapshot_interval\"/" $HOME/$CONFIG/config/app.toml && \
+sed -i.bak -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/$CONFIG/config/app.toml && \
+sed -i.bak -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/$CONFIG/config/app.toml && \
+sed -i.bak -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/$CONFIG/config/app.toml && \
+sed -i.bak -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/$CONFIG/config/app.toml && \
+sed -i.bak -e "s/^min-retain-blocks *=.*/min-retain-blocks = \"$min_retain_blocks\"/" $HOME/$CONFIG/config/app.toml && \
+sed -i.bak -e "s/^inter-block-cache *=.*/inter-block-cache = \"$inter_block_cache\"/" $HOME/$CONFIG/config/app.toml
+```
+
+# Start node
+```bash 
+# Create service | ONE COMMAND
+sudo tee /etc/systemd/system/$TIKER.service > /dev/null <<EOF
+[Unit]
+Description=$PROJECT Node
+After=network.target
+
+[Service]
+User=$USER
+Type=simple
+ExecStart=$(which $TIKER) start
+Restart=on-failure
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+```bash
+# Start service | ONE COMMAND
+sudo systemctl daemon-reload && \
+sudo systemctl enable $TIKER && \
+sudo systemctl restart $TIKER && \
+sudo journalctl -u $TIKER -f -o cat
+```
+```bash
+# Check synchronization of your node, if the result is false, the node is synchronized
+curl -s $NODE/status | jq .result.sync_info.catching_up
 ```
