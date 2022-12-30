@@ -1,3 +1,10 @@
+
+[<img src='https://user-images.githubusercontent.com/83868103/210116122-8e1f35b7-1578-4856-b02c-734154fc40c9.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4)
+[<img src='https://user-images.githubusercontent.com/83868103/210116164-088cf8f8-868e-477f-9659-3c184dc22868.png' alt='gentx'  width='16.2%'>](https://nemeton.okp4.network/leaderboard#leaderboard)
+[<img src='https://user-images.githubusercontent.com/83868103/210116187-9d459a76-e956-481a-92b6-6c11e6e97db2.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4)
+[<img src='https://user-images.githubusercontent.com/83868103/210116210-6997e3df-0e06-47c4-9ffd-c1c3b692431c.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4/blob/main/rewards.md)
+[<img src='https://user-images.githubusercontent.com/83868103/210116228-414bb6b0-f66f-4207-bb6f-12774d803daa.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4/blob/main/FAQ.md)
+[<img src='https://user-images.githubusercontent.com/83868103/210116267-bfff3f45-b653-4d5a-a58e-d9e046f79e96.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4/blob/main/Terms.md)
 # Terms & conditions
 > These Nemeton Testnet participation Terms & Conditions (the "Terms") apply to your access to and use of the websites, platform, software, technologies, features and other online products and services (collectively, the "OKP4 Services" or "Services") provided or made available by OKP4 SAS, a French company registered under number 842765356 and whose registered office is located at 1 passage de l'Europe - 31400 Toulouse - France (the "Company", "OKP4", or "we") in connection with the Testnet ("Testnet", or "Nemeton").
 > The Nemeton program is designed to improve the operational experience, security, and design of the OKP4 mainnet protocol as well as to expose potential issues and improve the experience of participants prior to the launch of the OKP4 mainnet and OKP4 DAO operation.
@@ -108,3 +115,10 @@
 > Notices. Any notices or other communications provided by the Company under the Terms, including those regarding changes to the Terms, may be given by posting on the OKP4 website, blog, or through other communications (such as forums, Telegram, Discord, or other channels).
 > Waiver of Rights. OKP4's failure to enforce any right or provision of these Terms shall not be deemed a waiver of such right or provision. A waiver of any such right or provision will be effective only if in writing and signed by a duly authorized representative of OKP4. Except as expressly provided in these Terms, the exercise by either party of any of its remedies under these Terms shall be without prejudice to its other remedies under these Terms or otherwise.
 > Contact Information. If you have any questions regarding these Terms or Nemeton, please contact nemeton@okp4.com or join us on our OKP4 Discord server.
+
+[<img src='https://user-images.githubusercontent.com/83868103/210116122-8e1f35b7-1578-4856-b02c-734154fc40c9.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4)
+[<img src='https://user-images.githubusercontent.com/83868103/210116164-088cf8f8-868e-477f-9659-3c184dc22868.png' alt='gentx'  width='16.2%'>](https://nemeton.okp4.network/leaderboard#leaderboard)
+[<img src='https://user-images.githubusercontent.com/83868103/210116187-9d459a76-e956-481a-92b6-6c11e6e97db2.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4)
+[<img src='https://user-images.githubusercontent.com/83868103/210116210-6997e3df-0e06-47c4-9ffd-c1c3b692431c.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4/blob/main/rewards.md)
+[<img src='https://user-images.githubusercontent.com/83868103/210116228-414bb6b0-f66f-4207-bb6f-12774d803daa.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4/blob/main/FAQ.md)
+[<img src='https://user-images.githubusercontent.com/83868103/210116267-bfff3f45-b653-4d5a-a58e-d9e046f79e96.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4/blob/main/Terms.md)
