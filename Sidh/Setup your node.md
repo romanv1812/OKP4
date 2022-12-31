@@ -217,6 +217,8 @@ okp4d tx staking create-validator \
   -y
   ```
 ## Snapshot
+If you did not find an open RPC, you can use the [parser](https://github.com/romanv1812/OKP4/blob/main/rpc_parser.sh) to search in the addrbook.
+
 ```bash
 sudo systemctl stop okp4d && \
 okp4d tendermint unsafe-reset-all --home $HOME/.okp4d --keep-addr-book
