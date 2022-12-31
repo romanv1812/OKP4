@@ -23,7 +23,7 @@
 > The validator's presence in the consensus will be automatically checked.
 #
 ### Links:   
-[Explorer](https://okp4.explorers.guru) | [Explorer](https://test.anode.team/opk4)
+[Explorer](https://okp4.explorers.guru) | [Explorer](https://test.anode.team/opk4)  
 [Faucet](https://faucet.okp4.network/)  
 
 [Discord](https://discord.com/invite/okp4) | [Twitter](https://twitter.com/OKP4_Protocol) | [Telegram](https://t.me/okp4network)
