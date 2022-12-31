@@ -23,18 +23,13 @@
 > The validator's presence in the consensus will be automatically checked.
 #
 ### Links:   
-* [Explorer](https://okp4.explorers.guru) | [Explorer](https://test.anode.team/opk4)
-* [Faucet](https://faucet.okp4.network/)
-* [Github](https://github.com/okp4)
+[Explorer](https://okp4.explorers.guru) | [Explorer](https://test.anode.team/opk4)
+[Faucet](https://faucet.okp4.network/)  
 
-* [Discord](https://discord.com/invite/okp4)
-* [Twitter](https://twitter.com/OKP4_Protocol)
-* [Telegram](https://t.me/okp4network)
+[Discord](https://discord.com/invite/okp4) | [Twitter](https://twitter.com/OKP4_Protocol) | [Telegram](https://t.me/okp4network)
 
-* [Website](https://okp4.network/)
-* [Whitepaper](https://docs.okp4.network/whitepaper/abstract%20)
-* [Medium](https://blog.okp4.network/)
-* [Linkedin](https://www.linkedin.com/company/okp4-open-knowledge-platform-for)
+[Github](https://github.com/okp4)  | [Website](https://okp4.network/)  | [Medium](https://blog.okp4.network/) | [Linkedin](https://www.linkedin.com/company/okp4-open-knowledge-platform-for) | [Whitepaper](https://docs.okp4.network/whitepaper/abstract%20)
+
 
 
 ## Guide navigation:
