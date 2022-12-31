@@ -311,8 +311,8 @@ okp4d q slashing signing-info $(okp4d tendermint show-validator)
 # Get peer (e.g. 72cc19c8435d662677b2ea627e649f39b5bc8abb@5.161.70.110:26656
 echo "$(okp4d tendermint show-node-id)@$(curl ifconfig.me):$(curl -s $NODE/status | jq -r '.result.node_info.listen_addr' | cut -d':' -f3)"
 ```
-```bash
 ## Wallet
+```bash
 # Get balance
 okp4d q bank balances $ADDRESS
 ```
@@ -321,7 +321,7 @@ okp4d q bank balances $ADDRESS
 ```bash
 # Vote
 okp4d tx gov vote <PROPOSAL_ID> <yes|no> --from $WALLET --fees 5000uknow -y
-``
+```
 ```bash
 # Check all voted proposals
 okp4d q gov proposals --voter $ADDRESS
