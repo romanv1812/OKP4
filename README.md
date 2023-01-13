@@ -10,7 +10,7 @@
 [<img src='https://user-images.githubusercontent.com/83868103/210104134-8de51fd2-3a57-47da-b1e9-52c7af551183.png' alt='gentx'  width='100%'>](https://nemeton.okp4.network/#home)
 
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Denver-Serial&size=25&pause=1000&color=50827B&center=true&vCenter=true&width=1000&lines=+Duration%3A+4+weeks++;From+Dec.+1st+to+Jan.+1st;It's+time+to+choose+a+task+%E2%87%A9;Good+luck+%F0%9F%A7%99%F0%9F%8F%BC)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Denver-Serial&size=25&pause=1000&color=33695FFF&center=true&vCenter=true&width=1000&lines=Phase+1+completed+%E2%9C%85;+But+you+can+still+use+guides+%E2%87%A9;+Congratulations+to+the+leaders+of+the+first+phase+%F0%9F%8E%89;%F0%9F%A5%87+Stake%26Relax+%F0%9F%A5%87;%F0%9F%A5%88+%F0%9D%90%AB%F0%9D%90%A8%F0%9D%90%A6%F0%9D%90%9A%F0%9D%90%A7%E2%9C%94%EF%B8%8E%F0%9D%9F%8F%F0%9D%9F%96%F0%9D%9F%8F%F0%9D%9F%90+%F0%9F%A5%88;%F0%9F%A5%89+Nodejumper+%F0%9F%A5%89)](https://git.io/typing-svg)
 
 [<img src='https://user-images.githubusercontent.com/83868103/210110435-e791db57-cc1b-4d2a-ba5f-ef59afde51f1.png' alt='gentx'  width='100%'>](https://github.com/romanv1812/OKP4/blob/main/Sidh/Submit%20your%20gentx.md)
 [<img src='https://user-images.githubusercontent.com/83868103/210101795-14194d32-fd2f-43a9-bf8f-336dba6c38d4.png' alt='node'  width='100%'>](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md)
@@ -22,6 +22,8 @@
 #
 
 <img width="100%" alt="image" src="https://user-images.githubusercontent.com/83868103/212421679-ccfbc405-f7ab-4946-a943-64fc63010497.png">  
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Denver-Serial&size=25&pause=1000&color=33695F&center=true&vCenter=true&width=1000&lines=+Phase+2+active;+Duration+4+weeks+;Jan.+2nd%2C+0%3A00+UTC+-+Jan.+31st%2C+23%3A59+UTC;+It's+time+to+complete+the+tasks!;+Good+luck+druids+%F0%9F%A7%99%E2%80%8D%E2%99%82%EF%B8%8F)](https://git.io/typing-svg)
 
 ![2 1](https://user-images.githubusercontent.com/83868103/212423859-0f4c3bba-b7e5-4308-a7c8-33622514a140.png)
 ![2 2](https://user-images.githubusercontent.com/83868103/212423860-16f5be34-1269-461b-831e-5c627dd434fe.png)
