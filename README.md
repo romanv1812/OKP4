@@ -25,11 +25,12 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Denver-Serial&size=25&pause=1000&color=33695F&center=true&vCenter=true&width=1000&lines=+Phase+2+active;+Duration+4+weeks+;Jan.+2nd%2C+0%3A00+UTC+-+Jan.+31st%2C+23%3A59+UTC;+It's+time+to+complete+the+tasks!;+Good+luck+druids+%F0%9F%A7%99%E2%80%8D%E2%99%82%EF%B8%8F)](https://git.io/typing-svg)
 
-![2 1](https://user-images.githubusercontent.com/83868103/212423859-0f4c3bba-b7e5-4308-a7c8-33622514a140.png)
-![2 2](https://user-images.githubusercontent.com/83868103/212423860-16f5be34-1269-461b-831e-5c627dd434fe.png)
-![2 3](https://user-images.githubusercontent.com/83868103/212423861-286031ec-673a-4ffd-86f3-272e31b54e54.png)
-![2 4](https://user-images.githubusercontent.com/83868103/212423862-b890b274-d701-410c-b2ed-d34cd3c2b0b9.png)
-![2 5](https://user-images.githubusercontent.com/83868103/212423863-6dfcc573-e273-4541-88e5-aaf09cea6f63.png)
+[<img src='https://user-images.githubusercontent.com/83868103/212423859-0f4c3bba-b7e5-4308-a7c8-33622514a140.png' alt='node'  width='100%'>](https://github.com/romanv1812/OKP4/blob/main/imbolc/Expose%20RPC%20node.md)
+[<img src='https://user-images.githubusercontent.com/83868103/212423860-16f5be34-1269-461b-831e-5c627dd434fe.png' alt='node'  width='100%'>](https://github.com/romanv1812/OKP4/blob/main/imbolc/Provide%20dashboard%20for%20the%20OKP4%20network.md)
+[<img src='https://user-images.githubusercontent.com/83868103/212423861-286031ec-673a-4ffd-86f3-272e31b54e54.png' alt='node'  width='100%'>](https://github.com/romanv1812/OKP4/blob/main/imbolc/Provide%20snapshots.md)
+[<img src='https://user-images.githubusercontent.com/83868103/212423862-b890b274-d701-410c-b2ed-d34cd3c2b0b9.png' alt='node'  width='100%'>](https://github.com/romanv1812/OKP4/blob/main/imbolc/Tweet%20about%20the%20uptime%20war.md)
+[<img src='https://user-images.githubusercontent.com/83868103/212423863-6dfcc573-e273-4541-88e5-aaf09cea6f63.png' alt='node'  width='100%'>](https://github.com/romanv1812/OKP4/blob/main/imbolc/Uptime%20war:%20prevent%20getting%20jailed!.md)
+
 
 
 #
