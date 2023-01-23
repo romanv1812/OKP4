@@ -54,10 +54,10 @@ tmux new-session -s okp4-snapshot
 #### Starting the server to distribute the snapshot
 ```bash
 cd $HOME/snapshot-share && \
-python3 -m http.server 1000
+sudo python3 -m http.server 1000
 ```
 #### Use ctrl+b d to disconnect from tmux session
 #### To get the snapshot download address, use the command 
 ```bash
-echo -e "\033[0;31m wget http://$(wget -qO- eth0.me):1000/snapshot-sharejackal-snap.tar.lz4 \033[0m"
+echo -e "\033[0;31m http://$(wget -qO- eth0.me):1000/snapshot-share/okp4-snap.tar.lz4 \033[0m"
 ```
