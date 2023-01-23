@@ -17,3 +17,4 @@ You will receive the points once the OKP4 team has checked your snapshots availa
 Share the link to your snapshots on this [form](https://okp4.typeform.com/NemetonSnapshot). Only one submission per druid will be studied.
 
 ## Completing a task
+To complete the task, you need to install an additional node, you cannot use the validator node to create snapshots (you need to stop the node, which will lead to loss of uptime). You can install using the installation guide from the first step. After successful installation and full synchronization of the node, you can start creating a snapshot.
