@@ -18,3 +18,42 @@ Share the link to your snapshots on this [form](https://okp4.typeform.com/Nemeto
 
 ## Completing a task
 To complete the task, you need to install an additional node, you cannot use the validator node to create snapshots (you need to stop the node, which will lead to loss of uptime). You can install with the installation [guide](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md) from the first phase. After successful installation and full synchronization of the node, you can start creating a snapshot.
+
+
+### Snapshot creation:
+#### 
+Creating a snapshot directory
+```bash
+mkdir $HOME/snapshot-share 
+```
+#### Before creating a snapshot, you need to stop the node:
+```bash
+sudo systemctl stop okp4d
+```
+
+#### Archiving the current state of the $HOME/.okp4d/data folder:
+```bash
+tar -cf - $HOME/.okp4d/data/ | lz4 - $HOME/snapshot-share/okp4-snap.tar.lz4 -f
+```
+
+#### Run a node after creating an archive:
+```bash
+sudo systemctl start okp4d
+```
+
+### Snapshot distribution:
+
+#### Tmux setup:
+```bash
+sudo apt install tmux 
+```
+#### Creating a new session in tmux
+```bash
+tmux new-session -s okp4-snapshot
+```
+#### Starting the server to distribute the snapshot
+```bash
+cd $HOME/snapshot-share && \
+python3 -m http.server 1000
+```
+
