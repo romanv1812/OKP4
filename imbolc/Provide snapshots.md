@@ -14,6 +14,6 @@
 You will receive the points once the OKP4 team has checked your snapshots availability.
 
 **How to Submit:**  
-Share the link to your snapshots on this form. Only one submission per druid will be studied.
+Share the link to your snapshots on this [form](https://okp4.typeform.com/NemetonSnapshot). Only one submission per druid will be studied.
 
 ## Completing a task
