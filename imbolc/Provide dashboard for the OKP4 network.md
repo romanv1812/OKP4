@@ -21,3 +21,4 @@ Non-relevant submissions or low-value ones will earn 0 points.
 
 **How to Submit:**  
 Share the link to your dashboard on this [form](https://okp4.typeform.com/NemetonDashboar). Only one submission per druid will be studied.
+## Completing a task
