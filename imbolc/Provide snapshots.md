@@ -5,7 +5,7 @@
 [<img src='https://user-images.githubusercontent.com/83868103/210116228-414bb6b0-f66f-4207-bb6f-12774d803daa.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4/blob/main/FAQ.md)
 [<img src='https://user-images.githubusercontent.com/83868103/210116267-bfff3f45-b653-4d5a-a58e-d9e046f79e96.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4/blob/main/Terms.md)
 ## Description:
-**Provide network snapshots.**
+### Provide network snapshots.
 
 **Rewards:**  
 2 000 points.
@@ -15,3 +15,5 @@ You will receive the points once the OKP4 team has checked your snapshots availa
 
 **How to Submit:**  
 Share the link to your snapshots on this form. Only one submission per druid will be studied.
+
+## Completing a task
