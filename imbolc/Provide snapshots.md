@@ -33,7 +33,7 @@ sudo systemctl stop okp4d
 
 #### Archiving the current state of the $HOME/.okp4d/data folder:
 ```bash
-tar -cf - $HOME/.okp4d/data/ | lz4 - $HOME/snapshot-share/okp4-snap.tar -f
+tar -cf - $HOME/.okp4d/data/ | lz4 - $HOME/snapshot-share/okp4-snap.tar.lz4 -f
 ```
 
 #### Run a node after creating an archive:
@@ -59,5 +59,5 @@ sudo python3 -m http.server 1000
 #### Use ctrl+b d to disconnect from tmux session
 #### To get the snapshot download address, use the command 
 ```bash
-echo -e "\033[0;31m http://$(wget -qO- eth0.me):1000/snapshot-share/okp4-snap.tar.lz4 \033[0m"
+echo -e "\033[0;31m http://$(wget -qO- eth0.me):1000/okp4-snap.tar.lz4 \033[0m"
 ```
