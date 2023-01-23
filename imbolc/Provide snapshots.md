@@ -33,7 +33,7 @@ sudo systemctl stop okp4d
 
 #### Archiving the current state of the $HOME/.okp4d/data folder:
 ```bash
-tar -cf - $HOME/.okp4d/data/ | lz4 - $HOME/snapshot-share/okp4-snap.tar.lz4 -f
+tar -cf - $HOME/.okp4d/data/ | lz4 - $HOME/snapshot-share/okp4-snap.tar -f
 ```
 
 #### Run a node after creating an archive:
