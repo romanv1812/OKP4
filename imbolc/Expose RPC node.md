@@ -19,7 +19,8 @@ Share the RPC endpoint on this [form](https://okp4.typeform.com/Nemeton-RPC). On
 
 ## Completing a task
 
-To complete the task, you need to install an additional node, it is not recommended to use a validator node with open RPC. You can install with the installation [guide](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md) from the first phase.
+To complete the task, you need to install an additional node, it is not recommended to use a validator node with open RPC. You can install with the installation [guide](https://github.com/romanv1812/OKP4/blob/main/Sidh/Setup%20your%20node.md) from the first phase. 
+After successful installation and full synchronization of the node, you need to make changes to config.toml and app.toml
 
 # 
 [<img src='https://user-images.githubusercontent.com/83868103/210116122-8e1f35b7-1578-4856-b02c-734154fc40c9.png' alt='gentx'  width='16.2%'>](https://github.com/romanv1812/OKP4)
