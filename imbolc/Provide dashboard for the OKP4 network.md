@@ -22,3 +22,46 @@ Non-relevant submissions or low-value ones will earn 0 points.
 **How to Submit:**  
 Share the link to your dashboard on this [form](https://okp4.typeform.com/NemetonDashboar). Only one submission per druid will be studied.
 ## Completing a task
+
+
+#### Variable zone
+```bash
+TOKEN=uknow
+PREFIX=okp4
+RPC_PORT=26657
+GRPC_PORT=9090
+```
+#### Install cosmos-exporter
+```bash
+wget https://github.com/solarlabsteam/cosmos-exporter/releases/download/v0.2.2/cosmos-exporter_0.2.2_Linux_x86_64.tar.gz
+tar xvfz cosmos-exporter*
+sudo cp ./cosmos-exporter /usr/bin
+rm cosmos-exporter* -rf
+```
+#### Add user
+```bash
+sudo useradd -rs /bin/false cosmos_exporter
+```
+
+```bash
+sudo tee <<EOF >/dev/null /etc/systemd/system/cosmos-exporter.service
+[Unit]
+Description=Cosmos Exporter
+After=network-online.target
+
+[Service]
+User=cosmos_exporter
+Group=cosmos_exporter
+TimeoutStartSec=0
+CPUWeight=95
+IOWeight=95
+ExecStart=cosmos-exporter --denom ${BOND_DENOM} --denom-coefficient 1000000 --bech-prefix ${BENCH_PREFIX} --tendermint-rpc http://localhost:${RPC_PORT} --node localhost:${GRPC_PORT}
+Restart=always
+RestartSec=2
+LimitNOFILE=800000
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
