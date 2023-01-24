@@ -23,7 +23,7 @@ Non-relevant submissions or low-value ones will earn 0 points.
 Share the link to your dashboard on this [form](https://okp4.typeform.com/NemetonDashboar). Only one submission per druid will be studied.
 ## Completing a task
 
-
+## 1
 #### Variable zone
 ```bash
 TOKEN=uknow
@@ -89,4 +89,15 @@ sudo systemctl enable okp4-cosmos-exporter
 sudo systemctl start okp4-cosmos-exporter
 sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
+```
+## 2
+```bash
+sudo apt update && apt upgrade -y; \
+sudo apt install jq -y; \
+sudo apt install python3-pip -y; \
+sudo pip install yq
+```
+
+```bash
+. <(wget -qO- https://raw.githubusercontent.com/SecorD0/utils/main/installers/docker.sh)
 ```
