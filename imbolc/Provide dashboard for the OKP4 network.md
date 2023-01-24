@@ -69,9 +69,9 @@ rm node_exporter-* -rf
 ```
 
 ```bash
-sudo tee <<EOF >/dev/null /etc/systemd/system/okp4_node_exporter.service
+sudo tee <<EOF >/dev/null /etc/systemd/system/node_exporter.service
 [Unit]
-Description=OKP4 Node Exporter
+Description=Node Exporter
 After=network.target
 
 [Service]
@@ -87,6 +87,6 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable okp4-cosmos-exporter
 sudo systemctl start okp4-cosmos-exporter
-sudo systemctl enable okp4-node_exporter
-sudo systemctl start okp4-node_exporter
+sudo systemctl enable node_exporter
+sudo systemctl start node_exporter
 ```
