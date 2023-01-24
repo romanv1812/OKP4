@@ -27,7 +27,7 @@ Share the link to your dashboard on this [form](https://okp4.typeform.com/Nemeto
 #### Variable zone
 ```bash
 TOKEN=uknow
-PREFIX=#okp4
+PREFIX=okp4
 RPC_PORT=26657
 GRPC_PORT=9090
 ```
