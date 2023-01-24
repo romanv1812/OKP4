@@ -89,10 +89,12 @@ ExecStart=/usr/local/bin/node_exporter
 
 [Install]
 WantedBy=multi-user.target
-EOF```
-
+EOF
+```
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable cosmos-exporter
 sudo systemctl start cosmos-exporter
 sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
+```
