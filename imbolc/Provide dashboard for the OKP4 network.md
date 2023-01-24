@@ -27,7 +27,7 @@ Share the link to your dashboard on this [form](https://okp4.typeform.com/Nemeto
 #### Variable zone
 ```bash
 TOKEN=uknow
-PREFIX=okp4
+PREFIX=#okp4
 RPC_PORT=26657
 GRPC_PORT=9090
 ```
@@ -38,24 +38,19 @@ tar xvfz cosmos-exporter*
 sudo cp ./cosmos-exporter /usr/bin
 rm cosmos-exporter* -rf
 ```
-#### Add user
-```bash
-sudo useradd -rs /bin/false cosmos_exporter
-```
 
 ```bash
-sudo tee <<EOF >/dev/null /etc/systemd/system/cosmos-exporter.service
+sudo tee <<EOF >/dev/null /etc/systemd/system/$PREFIX-cosmos-exporter.service
 [Unit]
-Description=Cosmos Exporter
+Description=$PREFIX Cosmos Exporter
 After=network-online.target
 
 [Service]
-User=cosmos_exporter
-Group=cosmos_exporter
+User=$USER
 TimeoutStartSec=0
 CPUWeight=95
 IOWeight=95
-ExecStart=cosmos-exporter --denom ${BOND_DENOM} --denom-coefficient 1000000 --bech-prefix ${BENCH_PREFIX} --tendermint-rpc http://localhost:${RPC_PORT} --node localhost:${GRPC_PORT}
+ExecStart=cosmos-exporter --denom ${TOKEN} --denom-coefficient 1000000 --bech-prefix ${PREFIX} --tendermint-rpc http://localhost:${RPC_PORT} --node localhost:${GRPC_PORT}
 Restart=always
 RestartSec=2
 LimitNOFILE=800000
