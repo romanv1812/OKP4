@@ -40,9 +40,9 @@ rm cosmos-exporter* -rf
 ```
 
 ```bash
-sudo tee <<EOF >/dev/null /etc/systemd/system/$PREFIX-cosmos-exporter.service
+sudo tee <<EOF >/dev/null /etc/systemd/system/okp4-cosmos-exporter.service
 [Unit]
-Description=$PREFIX Cosmos Exporter
+Description=OKP4 Cosmos Exporter
 After=network-online.target
 
 [Service]
@@ -67,18 +67,15 @@ tar xvfz node_exporter-*.*-amd64.tar.gz
 sudo mv node_exporter-*.*-amd64/node_exporter /usr/local/bin/
 rm node_exporter-* -rf
 ```
+
 ```bash
-sudo useradd -rs /bin/false node_exporter
-```
-```bash
-sudo tee <<EOF >/dev/null /etc/systemd/system/node_exporter.service
+sudo tee <<EOF >/dev/null /etc/systemd/system/okp4_node_exporter.service
 [Unit]
-Description=Node Exporter
+Description=OKP4 Node Exporter
 After=network.target
 
 [Service]
-User=node_exporter
-Group=node_exporter
+User=$USER
 Type=simple
 ExecStart=/usr/local/bin/node_exporter
 
@@ -88,8 +85,8 @@ EOF
 ```
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable cosmos-exporter
-sudo systemctl start cosmos-exporter
-sudo systemctl enable node_exporter
-sudo systemctl start node_exporter
+sudo systemctl enable okp4-cosmos-exporter
+sudo systemctl start okp4-cosmos-exporter
+sudo systemctl enable okp4-node_exporter
+sudo systemctl start okp4-node_exporter
 ```
